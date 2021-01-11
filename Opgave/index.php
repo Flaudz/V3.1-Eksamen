@@ -16,8 +16,6 @@ include "includes/header.php";
 <?php
 if(isset($_SESSION['username'])){
     if($_SESSION['accesslevel'] < 3){
-        echo $_SESSION['accesslevel'];
-
     ?>
 <div class="createArticle container">
 
@@ -52,12 +50,20 @@ if(isset($_SESSION['username'])){
         <div>
             <label for="category">Kategori</label>
             <select name="category" id="category" required>
-                <option value="jakker">Jakker</option>
+            <?php include "includes/showCategoryWhenMadeProducts.php" ?>
+                <!-- <option value="jakker">Jakker</option>
                 <option value="bukser">Bukser</option>
                 <option value="skjorter">Skjorter</option>
                 <option value="strik">Strik</option>
                 <option value="tshirts">T-shirts og tanktops</option>
-                <option value="tasker">Tasker</option>
+                <option value="tasker">Tasker</option> -->
+            </select>
+        </div>
+        <div>
+            <label for="gender">Køn</label>
+            <select name="gender" id="gender">
+                <option value="Mænd">Mænd</option>
+                <option value="Kvinde">Kvinde</option>
             </select>
         </div>
         <div>
