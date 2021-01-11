@@ -2,6 +2,9 @@
 $title = "Register | FancyClothes.dk";
 $description = "FancyClothes register side er en fatastisk side hvor du kan register dig som bruger på vores fatastiske side";
 include "includes/header.php";
+if(isset($_SESSION['username'])){
+    header("Location: index.php");
+}
 ?>
 <main class="container flex registerContainer">
     <form action="includes/registerUser.php" method="POST">

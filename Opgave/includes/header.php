@@ -1,3 +1,8 @@
+<?php
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -52,8 +57,18 @@
                 <li><a href="#">Nyheder</a></li>
                 <li><a href="#">Handelsbetingelser</a></li>
                 <li><a href="#">Om os</a></li>
-                <li><a href='#' class='loginBtn'>Log ind</a></li>
-                <li><a href='register.php' class='loginBtn'>Opret bruger</a></li>
+                <?php
+                if (!isset($_SESSION['username'])) {
+                ?>
+                    <li><a href='#' class='loginBtn'>Log ind</a></li>
+                    <li><a href='register.php' class='loginBtn'>Opret bruger</a></li>
+                <?php
+                } else{
+                    ?>
+                    <li><a href='includes/logout.php'>Log ud</a></li>
+                    <?php
+                }
+                ?>
             </ul>
         </nav>
         <div class="basket">
@@ -65,14 +80,21 @@
             </div>
         </div>
     </div>
-    <div class="login container">
-        <form action="includes/login.php" method="post">
-            <label for="formUsername">Bruger:</label>
-            <input type="text" id="formUsername" name="formUsername" placeholder="Brugernavn" required>
-            <label for="formPassword">Password:</label>
-            <input type="password" id="formPassword" name="formPassword" placeholder="Password" required>
-            <input type="submit" value="Log ind">
-        </form>
-        <a id="newUser" href="register.php">Ny bruger?</a>
-    </div>
+    <?php
+    if (isset($_SESSION['username'])) {
+    } else{
+        ?>
+        <div class="login container">
+            <form action="includes/login.php" method="post">
+                <label for="formUsername">Bruger:</label>
+                <input type="text" id="formUsername" name="formUsername" placeholder="Brugernavn" required>
+                <label for="formPassword">Password:</label>
+                <input type="password" id="formPassword" name="formPassword" placeholder="Password" required>
+                <input type="submit" value="Log ind">
+            </form>
+            <a id="newUser" href="register.php">Ny bruger?</a>
+        </div>
+    <?php
+    }
+    ?>
     <hr>

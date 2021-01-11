@@ -13,7 +13,11 @@ include "includes/header.php";
 <hr class="hide400">
 <h1 class="tagline">FancyClothes.DK - tøj, kvalitet, simpelt!</h1>
 <hr>
+<?php
+if(isset($_SESSION['username'])){
+    if($_SESSION['accesslevel'] > 3){
 
+        ?>
 <div class="createArticle container">
 
     <h3 class="center errorMsg">Opret ny vare:</h3>
@@ -62,6 +66,10 @@ include "includes/header.php";
 
 </div>
 </div>
+<?php
+    }
+}
+?>
 <main class="container">
     <aside>
         <div class="categories">
