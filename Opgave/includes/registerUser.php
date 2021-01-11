@@ -7,7 +7,7 @@ $userPassword = $_POST['passwordInput'];
 $password = password_hash($userPassword, PASSWORD_DEFAULT);
 
 // Making a prepare statement with the $con variable we got from database.php
-$statement = $con->prepare("SELECT * FROM USERS WHERE username = (:name)");
+$statement = $con->prepare("SELECT * FROM users WHERE username = (:name)");
 // Binding a value to (:name) that is in the SQL code above
 $statement->bindParam(':name', $userName);
 // Executing the SQL

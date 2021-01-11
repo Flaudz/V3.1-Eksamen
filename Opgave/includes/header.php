@@ -66,7 +66,7 @@
         </div>
     </div>
     <div class="login container">
-        <form action="login.php" method="post">
+        <form action="includes/login.php" method="post">
             <label for="formUsername">Bruger:</label>
             <input type="text" id="formUsername" name="formUsername" placeholder="Brugernavn" required>
             <label for="formPassword">Password:</label>
