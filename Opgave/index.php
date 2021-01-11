@@ -15,9 +15,10 @@ include "includes/header.php";
 <hr>
 <?php
 if(isset($_SESSION['username'])){
-    if($_SESSION['accesslevel'] > 3){
+    if($_SESSION['accesslevel'] < 3){
+        echo $_SESSION['accesslevel'];
 
-        ?>
+    ?>
 <div class="createArticle container">
 
     <h3 class="center errorMsg">Opret ny vare:</h3>
