@@ -11,7 +11,7 @@ if($stmt->rowCount() > 0){
     // If it is then do a while loop with fetch to get the results
     while($row = $stmt->fetch()){
         ?>
-            <option value="<?= $row['categoryName'] ?>"><?= $row['categoryName'] ?></option>
+            <option value="<?= $row['categoryId'] ?>"><?= $row['categoryName'] ?></option>
         <?php
     }
 }
