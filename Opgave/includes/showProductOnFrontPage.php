@@ -35,8 +35,7 @@ if ($stmt->rowCount() > 0) {
                 <div class="published">
                     Oprettet: Mandag d. 24/6-2019 af Mark
                 </div>
-                <p><?= $row['bodyText'] ?>
-                    <p class="readmore">Læs mere...</p>
+                <p class="desc"><?= $row['bodyText'] ?>
                 </p>
                 <!-- Mulighed for sletning herunder -->
             </div>

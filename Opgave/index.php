@@ -15,9 +15,8 @@ include "includes/header.php";
 <hr>
 <?php
 if(isset($_SESSION['username'])){
-    if($_SESSION['accesslevel'] > 3){
-
-        ?>
+    if($_SESSION['accesslevel'] < 3){
+    ?>
 <div class="createArticle container">
 
     <h3 class="center errorMsg">Opret ny vare:</h3>
@@ -51,12 +50,20 @@ if(isset($_SESSION['username'])){
         <div>
             <label for="category">Kategori</label>
             <select name="category" id="category" required>
-                <option value="jakker">Jakker</option>
+            <?php include "includes/showCategoryWhenMadeProducts.php" ?>
+                <!-- <option value="jakker">Jakker</option>
                 <option value="bukser">Bukser</option>
                 <option value="skjorter">Skjorter</option>
                 <option value="strik">Strik</option>
                 <option value="tshirts">T-shirts og tanktops</option>
-                <option value="tasker">Tasker</option>
+                <option value="tasker">Tasker</option> -->
+            </select>
+        </div>
+        <div>
+            <label for="gender">Køn</label>
+            <select name="gender" id="gender">
+                <option value="Mænd">Mænd</option>
+                <option value="Kvinde">Kvinde</option>
             </select>
         </div>
         <div>
@@ -119,50 +126,9 @@ if(isset($_SESSION['username'])){
             </div>
         </div>
         <div class="frontProducts">
-            <article>
-                <img src="img/produkt1.jpg" alt="Lækker læderjakke>">
-                <div class="info">
-                    <h3>Lækker læderjakke</h3>
-                    <div class="stars">
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star-o' aria-hidden='true'></i>
-                        <i class='fa fa-star-o' aria-hidden='true'></i>
-                    </div>
-                </div>
-                <div class="description">
-                    <div class="published">
-                        Oprettet: Mandag d. 24/6-2019 af Mark
-                    </div>
-                    <p>Odd Molly er et svensk luksusbrand stiftet af Per Holknekt – tidligere pro skateboarder. Verdenseliten tiltrak dengang mange kvindelige fans, og de fleste af dem gjorde, hvad de kunne for at få fyrenes opmærksomhed. Alle undtagen én. Hun forblev tro mod sig selv - en unik, selvsikker og uforanderlig skønhed - hende, alle fyrene ville ha'. En Odd Molly! - som ikke er et koncept, men autentisk! – et brand, hvis kollektioner er vildt smukke og inderlige, som der altid vil være brug for - dengang, nu, såvel som i fremtiden.
-                        <a href="#">Læs mere...</a>
-                    </p>
-                    <!-- Mulighed for sletning herunder -->
-                </div>
-            </article>
-            <article>
-                <img src="img/produkt1.jpg" alt="Lækker læderjakke>">
-                <div class="info">
-                    <h3>Lækker læderjakke</h3>
-                    <div class="stars">
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star' aria-hidden='true'></i>
-                        <i class='fa fa-star-o' aria-hidden='true'></i>
-                        <i class='fa fa-star-o' aria-hidden='true'></i>
-                    </div>
-                </div>
-                <div class="description">
-                    <div class="published">
-                        Oprettet: Mandag d. 24/6-2019 af Mark
-                    </div>
-                    <p>Odd Molly er et svensk luksusbrand stiftet af Per Holknekt – tidligere pro skateboarder. Verdenseliten tiltrak dengang mange kvindelige fans, og de fleste af dem gjorde, hvad de kunne for at få fyrenes opmærksomhed. Alle undtagen én. Hun forblev tro mod sig selv - en unik, selvsikker og uforanderlig skønhed - hende, alle fyrene ville ha'. En Odd Molly! - som ikke er et koncept, men autentisk! – et brand, hvis kollektioner er vildt smukke og inderlige, som der altid vil være brug for - dengang, nu, såvel som i fremtiden.
-                        <a href="#">Læs mere...</a>
-                    </p>
-                    <!-- Mulighed for sletning herunder -->
-                </div>
-            </article>
+            <?php
+                include 'includes/showProductOnFrontPage.php';
+            ?>
         </div>
     </div>
 </main>
@@ -170,7 +136,7 @@ if(isset($_SESSION['username'])){
 include "includes/footer.php";
 ?>
 <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>');
 </script>
 <script src="js/plugins.js"></script>
 <script src="js/slider.min.js"></script>
