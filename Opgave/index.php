@@ -94,12 +94,7 @@ if(isset($_SESSION['username'])){
             </div>
             <div class="catMain">
                 <ul>
-                    <li><a href="#">Jakker</a></li>
-                    <li><a href="#">Bukser</a></li>
-                    <li><a href="#">Skjorter</a></li>
-                    <li><a href="#">Strik</a></li>
-                    <li><a href="#">T-shirts & Tank tops</a></li>
-                    <li><a href="#">Tasker</a></li>
+                    <?php include "includes/showCategorys.php"; ?>
                 </ul>
             </div>
         </div>

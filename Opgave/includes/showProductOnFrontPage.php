@@ -1,8 +1,18 @@
 <?php
 include 'database.php';
-
-// Making a SQL stmt to get information from the database(We get $con from the database.php)
-$stmt = $con->prepare("SELECT * FROM products");
+$stmt;
+// Tjekker hvis url har ?category=1
+if(isset($_GET['category'])){
+    // Hvis den har tager jeg i dette tilfælde 1 og laver om til en int
+    $category = intval($_GET['category']);
+    // Making a SQL stmt to get information from the database(We get $con from the database.php)
+    $stmt = $con->prepare("SELECT * FROM products WHERE category = $category");
+}
+else{
+    // Hvis den ikke har dette så viser den bare alle produkter
+    // Making a SQL stmt to get information from the database(We get $con from the database.php)
+    $stmt = $con->prepare("SELECT * FROM products");
+}
 $stmt->execute();
 // Here i check if the row count (Number of rows i got out of the SQl) is above 0
 if ($stmt->rowCount() > 0) {
@@ -55,5 +65,10 @@ if ($stmt->rowCount() > 0) {
         </article>
 <?php
     }
+}
+else{
+    ?>
+<h2>Der er desværre ingen produkter der er i denne kategori</h2>
+    <?php
 }
 ?>
