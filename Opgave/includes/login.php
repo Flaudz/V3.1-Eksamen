@@ -20,7 +20,7 @@ if($statement->rowCount() > 0){
         echo $checkPassword;
         if($row["username"] == $userName && $checkPassword == 1){
             // If the password is true the i make 2 session to keep information about what account the user is logged in to
-            $_SESSION["uid"] = $row['id'];
+            $_SESSION["uid"] = $row['userId'];
             $_SESSION["username"] = $row['username'];
             $_SESSION["accesslevel"] = $row['accesslevel'];
             header("Location: ../index.php");

@@ -43,7 +43,16 @@ if ($stmt->rowCount() > 0) {
             </div>
             <div class="description">
                 <div class="published">
-                    Lavet: <?= $row['dateMade'] ?>
+                <?php
+                $statement = $con->prepare("SELECT * FROM users WHERE userId = $row[madeBy]");
+                $statement->execute();
+                while($dataRow = $statement->fetch()){
+
+                    ?>
+                    Lavet: <?= $row['dateMade'] ?> Af: <?= $dataRow['username'] ?>
+                <?php
+                }
+                ?>
                 </div>
                 <p class="desc"><?= $row['bodyText'] ?>
                 </p>
