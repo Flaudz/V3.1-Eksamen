@@ -137,6 +137,19 @@ include "includes/footer.php";
 ?>
 <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>');
+    const makeDescSmaller = () => {
+        let allDescriptions = document.querySelectorAll(".desc");
+        allDescriptions.forEach(description => {
+            let readMore = document.createElement("a");
+            readMore.innerText = "Læs Mere...";
+            let oldDesc = description.innerText;
+            if (oldDesc.length >= 70) {
+                let newDesc = oldDesc.substr(0, 60);
+                description.innerText = `${newDesc}`;
+            }
+        });
+    }
+    makeDescSmaller();
 </script>
 <script src="js/plugins.js"></script>
 <script src="js/slider.min.js"></script>
