@@ -1,5 +1,5 @@
 <?php
-$title = "Register | FancyClothes.dk";
+$title = "Opret Bruger | FancyClothes.dk";
 $description = "FancyClothes register side er en fatastisk side hvor du kan register dig som bruger på vores fatastiske side";
 include "includes/header.php";
 if(isset($_SESSION['username'])){
@@ -18,6 +18,7 @@ if(isset($_SESSION['username'])){
 <?php
 include "includes/footer.php";
 ?>
+<script src="js/activeLinks.js"></script>
 </body>
 
 </html>
