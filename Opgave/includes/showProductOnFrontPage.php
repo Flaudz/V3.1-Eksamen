@@ -66,4 +66,9 @@ if ($stmt->rowCount() > 0) {
 <?php
     }
 }
+else{
+    ?>
+<h2>Der er desværre ingen produkter der er i denne kategori</h2>
+    <?php
+}
 ?>
