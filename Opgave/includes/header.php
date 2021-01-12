@@ -58,6 +58,7 @@
                 <li><a href="#">Handelsbetingelser</a></li>
                 <li><a href="#">Om os</a></li>
                 <?php
+                // Her tjekker vi om session variablen username er sat eller ikke er sat
                 if (!isset($_SESSION['username'])) {
                 ?>
                     <li><a href='#' class='loginBtn'>Log ind</a></li>

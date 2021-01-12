@@ -5,13 +5,16 @@ const router = express.Router();
 // Import mysql
 const mysql = require('mysql');
 
+// Her tilslutter vi databasen
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     database: 'fancyclothes'
 });
 
-// Route viser alle 
+// Route viser alle produkter
+// Hvis man ændre router.get til router.post den sti til handle med post request
+// Det er måde man fortæller hvilken slags kald man vil have
 router.get('/', (req, res) =>{
     // SQL QUERY
     const query = "SELECT * FROM products";
@@ -21,7 +24,7 @@ router.get('/', (req, res) =>{
     });
 });
 
-// Laver en ny route til apien som fanger alle produkter som 
+// Laver en ny route til apien som fanger alle produkter som har den sammen id som er i urlen
 router.get('/:id', (req, res) =>{
     const id = req.params.id;
 
@@ -33,4 +36,5 @@ router.get('/:id', (req, res) =>{
     });
 });
 
+// Module is a variable that represents the current module an exports is an object that wil be exposed as a module. So that means what you assaign to module.exports will be exposed as a module
 module.exports = router;
