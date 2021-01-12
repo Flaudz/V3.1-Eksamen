@@ -37,7 +37,7 @@ if ($stmt->rowCount() > 0) {
                 </div>
                 <p class="desc"><?= $row['bodyText'] ?>
                 </p>
-                <!-- Mulighed for sletning herunder -->
+                <a class="deleteProduct" id="<?= $row['productId'] ?>">X</a>
             </div>
         </article>
 <?php

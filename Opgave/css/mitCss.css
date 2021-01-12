@@ -12,7 +12,10 @@
     justify-content: center;
 }
 
-.fa-trash-alt{
-    color: black;
-    width: 2vw;
+.deleteProduct{
+    font-weight: 800;
+}
+
+.deleteProduct:hover{
+    cursor: pointer;
 }
