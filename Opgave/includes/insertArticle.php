@@ -13,4 +13,4 @@ echo $_SESSION['uid'];
 // Making a prepare statement with the $con variable i got from database.php
 $stmt = $con->prepare("INSERT INTO products (headline, imgSrc, imgAlt, bodyText, madeBy, stars, category, gender) VALUES ('$headline','$imgSrc','$imgAlt','$content','$_SESSION[uid]','$stars','$category','$gender');");
 $stmt->execute();
-// header("Location: ../index.php");
+header("Location: ../index.php");
