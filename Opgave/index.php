@@ -144,6 +144,7 @@ include "includes/footer.php";
 </script>
 <script src="js/plugins.js"></script>
 <script src="js/slider.min.js"></script>
+<script src="js/activeLinks.js"></script>
 <script>
     $(window).on("load", function() {
         $("#slider").slider();
