@@ -33,11 +33,24 @@ if ($stmt->rowCount() > 0) {
             </div>
             <div class="description">
                 <div class="published">
-                    Oprettet: Mandag d. 24/6-2019 af Mark
+                    Lavet: <?= $row['dateMade'] ?>
                 </div>
                 <p class="desc"><?= $row['bodyText'] ?>
                 </p>
-                <a class="deleteProduct" id="<?= $row['productId'] ?>">X</a>
+                <?php
+                // Hvis Session (Username) er sat skal den tjekke om man har lavet produktet eller at man er accesslevel 1
+                // Hvis man ikke er kan man ikke slette produktet
+                // Men hvis man er kan man
+                if (isset($_SESSION['username'])) {
+
+                    if ($row['madeBy'] == $_SESSION['uid'] || $_SESSION['accesslevel'] == 1) {
+                ?>
+                        <a class="deleteProduct" id="<?= $row['productId'] ?>">X</a>
+                <?php
+
+                    }
+                }
+                ?>
             </div>
         </article>
 <?php
