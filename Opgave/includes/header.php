@@ -1,8 +1,8 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-include 'database.php';
+    if(session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
+    include 'database.php';
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -47,10 +47,15 @@ include 'database.php';
     <div class="container home">
         <a href="index.php"><img src="img/homeIcon.png" alt="Forside ikon"></a>
         <?php
-        if (isset($_SESSION['username'])) {
-        ?>
-            <h2>Velkommen <?= $_SESSION["username"] ?></h2>
+        if(isset($_SESSION['username'])) {
+            $stmt = $con->prepare("SELECT * FROM users WHERE userId = $_SESSION[uid]");
+            $stmt->execute();
+            while($row = $stmt->fetch()){
+
+                ?>
+        <h2>Velkommen <?= $row['username'] ?></h2>
         <?php
+            }
         }
         ?>
     </div>
@@ -70,10 +75,10 @@ include 'database.php';
                     <li><a href='#' class='loginBtn'>Log ind</a></li>
                     <li><a href='register.php' class='loginBtn'>Opret bruger</a></li>
                 <?php
-                } else {
-                ?>
+                } else{
+                    ?>
                     <li><a href='includes/logout.php'>Log ud</a></li>
-                <?php
+                    <?php
                 }
                 ?>
             </ul>
@@ -89,8 +94,8 @@ include 'database.php';
     </div>
     <?php
     if (isset($_SESSION['username'])) {
-    } else {
-    ?>
+    } else{
+        ?>
         <div class="login container">
             <form action="includes/login.php" method="post">
                 <label for="formUsername">Bruger:</label>
