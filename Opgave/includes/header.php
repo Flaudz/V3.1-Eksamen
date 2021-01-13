@@ -2,6 +2,7 @@
     if(session_status() == PHP_SESSION_NONE){
         session_start();
     }
+    include 'database.php';
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -45,8 +46,18 @@
     <hr>
     <div class="container home">
         <a href="index.php"><img src="img/homeIcon.png" alt="Forside ikon"></a>
-        <!-- Velkomstbesked -->
-        <h2></h2>
+        <?php
+        if(isset($_SESSION['username'])) {
+            $stmt = $con->prepare("SELECT * FROM users WHERE userId = $_SESSION[uid]");
+            $stmt->execute();
+            while($row = $stmt->fetch()){
+
+                ?>
+        <h2>Velkommen <?= $row['username'] ?></h2>
+        <?php
+            }
+        }
+        ?>
     </div>
     <hr>
     <div class="container navbar">
