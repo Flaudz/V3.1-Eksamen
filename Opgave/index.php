@@ -44,7 +44,7 @@ if(isset($_SESSION['username'])){
         </div>
         <div>
             <label for="content">Brødtekst</label>
-            <textarea name="content" id="content" cols="30" rows="10" placeholder="Brødtekst..."></textarea>
+            <textarea name="content" id="textarea" cols="30" rows="10" placeholder="Brødtekst..."></textarea>
         </div>
         <div>
             <label for="stars">Antal stjerner</label>
@@ -145,6 +145,7 @@ include "includes/footer.php";
 <script src="js/plugins.js"></script>
 <script src="js/slider.min.js"></script>
 <script src="js/activeLinks.js"></script>
+<script src="https://cdn.tiny.cloud/1/kdg5ovhsls0qt0smv5v3gj4dighxakp8kq85crqvtfp6jqr0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     $(window).on("load", function() {
         $("#slider").slider();
@@ -167,6 +168,16 @@ include "includes/footer.php";
             });
         })
     });
+
+    // TinyMCE
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+   });
 </script>
 </body>
 
