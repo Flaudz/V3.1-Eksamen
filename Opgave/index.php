@@ -1,13 +1,6 @@
 <?php
 include "includes/database.php";
-if (isset($_POST['callFunc1'])) {
-    // Får id fra ajax kald nede i javascript
-    $id = intval($_POST['callFunc1']);
-    
-    // Laver et prepared statement til at slette produktet
-    $stmt = $con->prepare("DELETE FROM `products` WHERE `productId` = $id");
-    $stmt->execute();
-}
+
 $title = "Forside | FancyClothes.dk";
 $description = "FancyClothes er en butik med masser af moderne modetøj til både mænd og kvinder til billige penge";
 include "includes/header.php";
@@ -153,22 +146,6 @@ include "includes/footer.php";
     });
 
     // Mit Javascript
-    // Slet Produkt
-    const deleteBtn = document.querySelectorAll(".deleteProduct");
-    deleteBtn.forEach(btn => {
-        btn.addEventListener("click", e =>{
-            const id = e.target.id;
-            $.ajax({
-                url: 'index.php',
-                type: 'post',
-                data: {
-                    "callFunc1": id
-                },
-                success: function(response) {
-                }
-            });
-        })
-    });
 
     // TinyMCE
     tinymce.init({
