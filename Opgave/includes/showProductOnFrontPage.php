@@ -64,7 +64,7 @@ if ($stmt->rowCount() > 0) {
 
                     if ($row['madeBy'] == $_SESSION['uid'] || $_SESSION['accesslevel'] == 1) {
                 ?>
-                        <a class="deleteProduct" id="<?= $row['productId'] ?>">X</a>
+                        <a class="deleteProduct" href="includes/deleteProduct.php?id=<?= $row['productId'] ?>?madeBy=<?= $row['madeBy'] ?>">X</a>
                 <?php
 
                     }
