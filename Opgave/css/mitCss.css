@@ -17,3 +17,7 @@
     color: black;
     text-decoration: none;
 }
+
+.readMore:hover{
+    cursor: pointer;
+}

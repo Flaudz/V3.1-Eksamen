@@ -147,6 +147,46 @@ include "includes/footer.php";
 
     // Mit Javascript
 
+    // Change description p
+    const changeDescP = () =>{
+        const paragrahs = document.querySelectorAll(".description p");
+        paragrahs.forEach(pElement => {
+            if(!pElement.className.includes("desc")){
+                pElement.classList.add("desc");
+            }
+        });
+    }
+    changeDescP();
+    // Shrink Description
+    const shrinkDescription = () =>{
+        const allDescriptions = document.querySelectorAll(".desc");
+        allDescriptions.forEach(desc => {
+
+            let oldDesc = desc.innerHTML;
+            let oldDescElem = document.createElement("p");
+            oldDescElem.innerHTML = oldDesc;
+            oldDescElem.classList.add("oldDesc");
+            oldDescElem.style.display = "hidden";
+            document.querySelector(".description").appendChild(oldDescElem);
+            console.log(oldDesc.length);
+            if(oldDesc.length > 80){
+                let newDesc = oldDesc.substr(0, 80);
+                desc.innerHTML = `${newDesc}<br><br><strong><span class="readMore">Læs mere...</span></strong>`;
+            }
+        });
+    }
+    shrinkDescription();
+
+    // Expand Description
+    const expandDesc = () =>{
+        const allExpandBtn = document.querySelectorAll(".readMore");
+        allExpandBtn.forEach(expandBtn => {
+            expandBtn.addEventListener("click", e =>{
+
+            })
+        });
+    }
+
     // TinyMCE
     tinymce.init({
       selector: 'textarea',
@@ -160,8 +200,6 @@ include "includes/footer.php";
    // Fixing Strong Element
        const allStrongElements = document.querySelectorAll("strong > article");
        allStrongElements.forEach(element => {
-           
-            console.log(element);
             let content = element.parentElement.innerHTML;
             document.querySelector(".frontProducts").removeChild(element.parentElement);
             document.querySelector(".frontProducts").innerHTML += content;
