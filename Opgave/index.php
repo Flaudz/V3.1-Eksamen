@@ -29,7 +29,7 @@ if(isset($_SESSION['username'])){
 <div class="createArticle container">
 
     <h3 class="center errorMsg">Opret ny vare:</h3>
-    <!-- Grunden til enctype="multipart" er at hvis man sender flere forskellige slags data skal man fortælle det til formen -->
+    <!-- Grunden til enctype="multipart" er at man skal have den hvis man har file uploade -->
     <form action="includes/insertArticle.php" method="POST" enctype="multipart/form-data">
         <div>
             <label for="imgSrc">Billede</label>
