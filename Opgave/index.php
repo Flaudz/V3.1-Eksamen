@@ -179,6 +179,16 @@ include "includes/footer.php";
       tinycomments_mode: 'embedded',
       tinycomments_author: 'Author name',
    });
+
+   // Fixing Strong Element
+       const allStrongElements = document.querySelectorAll("strong > article");
+       allStrongElements.forEach(element => {
+           
+            console.log(element);
+            let content = element.parentElement.innerHTML;
+            document.querySelector(".frontProducts").removeChild(element.parentElement);
+            document.querySelector(".frontProducts").innerHTML += content;
+        });
 </script>
 </body>
 
